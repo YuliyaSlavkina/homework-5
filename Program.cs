@@ -124,12 +124,13 @@
 // Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
 // [3 7 22 2 78] -> 76
 
-double[] CreateArray(int num, int min, int max)
+double[] CreateArray(int num)
 {
     double[] array = new double[num];
     for (int i = 0; i < num; i++)
     {
-        array[i] = new Random().NextDouble()*100;
+        // array[i] = new Random().NextDouble()*100;
+        array[i] = Math.Round((new Random().NextDouble()*100), 2);
        
     }
     return array;
@@ -173,15 +174,14 @@ double Max(double[] array)
 
 double DifferenceMinMax(double Min, double Max)
 {
-    double difference = Max - Min;
+    double difference = Math.Round((Max - Min),2);
     return difference;
 }
 
 int num = 10;
-int min = 0;
-int max = 125;
 
-double[] myArray = CreateArray(num, min, max);
+
+double[] myArray = CreateArray(num);
 PrintArray(myArray);
 Console.WriteLine();
 Console.WriteLine($"min = {Min(myArray)}");
